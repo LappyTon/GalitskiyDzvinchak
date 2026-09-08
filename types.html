@@ -228,9 +228,9 @@ h2, h3 {
     </button>
 
     <button class="btn btn-sm"
-      :class="selected === 'Блоки' ? 'btn-dark' : 'btn-outline-dark'"
-      @click="selected = 'Блоки'">
-      Блоки
+      :class="selected === 'Блочки' ? 'btn-dark' : 'btn-outline-dark'"
+      @click="selected = 'Блочки'">
+      Блочки
     </button>
 
     <button class="btn btn-sm"
@@ -665,12 +665,67 @@ h2, h3 {
 </div>
 </div>
 
-<div v-if="selected === 'Плитка'">
-  
+<div v-if="selected === 'Цегла'">
+  <div class="section text-center">
+    <div class="hero-title">
+      ЦЕГЛА
+    </div>
+
+    <div class="sub-title">
+      В стані розробки
+    </div>
+  </div>
 </div>
 
+<div v-if="selected === 'Плитка'">
+  <div class="section text-center">
+    <div class="hero-title">
+      ПЛИТКА
+    </div>
+
+    <div class="sub-title">
+      В стані розробки
+    </div>
   </div>
-<!-- test -->
+</div>
+
+<div v-if="selected === 'Блочки'">
+  <div class="section text-center">
+    <div class="hero-title">
+      БЛОЧКИ
+    </div>
+
+    <div class="sub-title">
+      В стані розробки
+    </div>
+  </div>
+</div>
+
+<div v-if="selected === 'Кути'">
+  <div class="section text-center">
+    <div class="hero-title">
+      КУТИ
+    </div>
+
+    <div class="sub-title">
+      В стані розробки
+    </div>
+  </div>
+</div>
+
+<div v-if="selected === 'Вироби'">
+  <div class="section text-center">
+    <div class="hero-title">
+      ВИРОБИ
+    </div>
+
+    <div class="sub-title">
+      В стані розробки
+    </div>
+  </div>
+</div>
+
+</div>
 </main>
 
 <!-- ================= FOOTER ================= -->
