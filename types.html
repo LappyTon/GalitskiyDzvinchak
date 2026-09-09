@@ -712,7 +712,7 @@ h2, h3 {
 <div class="section text-center">
 
 <h1 class="mb-5">
-  Цікаві артефакти на плитці:
+  Відливи на плитці:
 </h1>
 
 <div class="section text-center">
@@ -809,7 +809,7 @@ h2, h3 {
 </div>
 
 <div class="sub-title">
-  Від глини до готового виробу
+  Від цегли до готового виробу
 </div>
 
 <div class="quote-box mt-5">
@@ -821,30 +821,43 @@ h2, h3 {
 </div>
 
 <h3 class="mt-5">
-  | Формування
+  | Відбір
 </h3>
 
 <p class="fs-5">
-  Сиру масу формували у спеціальних формах, після чого плитку
-  залишали висихати перед випалом.
+  Цеглу відбирають для того щоб створити ідеальну плитку з хорошої цегли
 </p>
 
 <h3>
-  | Випал
+  | Кислота
 </h3>
 
 <p class="fs-5">
-  Після висушування плитку випалювали у печах при високій температурі.
-  Саме випал надавав матеріалу міцності.
+  Цегла замочується в кислоті щоб у вас не залишилось нічого окрім самої цегли
 </p>
 
 <h3>
-  | Покриття
+  | Помив
 </h3>
 
 <p class="fs-5">
-  Деякі види плитки покривали глазур'ю, яка створювала характерний
-  блискучий або кольоровий поверхневий шар.
+  Після кислоти цегла сортується ще раз і відмивається спеціальним керхером - водою під тиском, для того щоб змити всю кислоту
+</p>
+
+<h3>
+  | Нарізка
+</h3>
+
+<p class="fs-5">
+  Після помиву цегла нарізається спеціальними приладами, деколи вона ламається але чим досвідченіший майстер тим вона рідше ламається
+</p>
+
+<h3>
+  | Фінальний штрих
+</h3>
+
+<p class="fs-5">
+  Після порізки цегла миється від пилюки, сортується в ящики і виставляється на продаж
 </p>
 
 </div>
@@ -870,78 +883,6 @@ h2, h3 {
 
 </div>
 
-<div class="section">
-
-<h2>
-  Керамічна плитка
-</h2>
-
-<p class="fs-5">
-  Керамічна плитка виготовляється з глини та інших природних матеріалів.
-  Після формування її висушують і випалюють у печі.
-</p>
-
-<p class="fs-5">
-  Саме керамічна плитка стала одним із найпоширеніших матеріалів
-  для оздоблення стін та підлоги.
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>
-  Глазурована плитка
-</h2>
-
-<p class="fs-5">
-  Глазурована плитка має спеціальне склоподібне покриття.
-  Воно може бути прозорим або кольоровим та надає поверхні
-  характерного блиску.
-</p>
-
-<p class="fs-5">
-  Глазур також допомагає захищати поверхню плитки від вологи
-  та забруднення.
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>
-  Орнаментована плитка
-</h2>
-
-<p class="fs-5">
-  Орнаментована плитка прикрашена різноманітними геометричними,
-  рослинними або іншими декоративними візерунками.
-</p>
-
-<p class="fs-5">
-  Таку плитку часто використовували для створення декоративних
-  композицій на стінах, підлогах та фасадах будівель.
-</p>
-
-</div>
-
-<div class="section">
-
-<h2>
-  Плитка в старих будинках
-</h2>
-
-<p class="fs-5">
-  Старовинну плитку можна зустріти у житлових будинках,
-  громадських спорудах, храмах та інших історичних будівлях.
-</p>
-
-<p class="fs-5">
-  Її колір, форма та орнамент можуть багато розповісти
-  про час і місце, де вона була виготовлена.
-</p>
-
-</div>
 
 <div class="section quote-box">
 
@@ -949,6 +890,98 @@ h2, h3 {
   Стара плитка — це не просто будівельний матеріал.
   Це маленька частина історії, яка збереглася до наших днів.
 </h3>
+
+</div>
+
+<div class="section text-center">
+
+<h1 class="mb-5">
+  Цікаві артефакти на плитці:
+</h1>
+
+</div>
+<div class="section text-center">
+
+  <div class="d-flex justify-content-between align-items-center mb-4 px-3">
+
+<button
+  class="btn btn-outline-dark btn-sm fixed-btn"
+  @click="prevTileArtifact">
+  &lt;
+</button>
+
+<h2 class="display-4 fw-bold mb-0">
+  {{ currentTileArtifact.title }}
+</h2>
+
+<button
+  class="btn btn-outline-dark btn-sm fixed-btn"
+  @click="nextTileArtifact">
+  &gt;
+</button>
+
+  </div>
+
+  <p class="fs-4 mb-4">
+    {{ currentTileArtifact.desc }}
+  </p>
+
+  <div
+    :id="currentTileArtifact.id"
+    class="carousel slide my-4"
+    data-bs-ride="carousel">
+
+<div class="carousel-indicators">
+
+  <button
+    v-for="(img, i) in currentTileArtifact.images"
+    :key="i"
+    type="button"
+    :data-bs-target="'#' + currentTileArtifact.id"
+    :data-bs-slide-to="i"
+    :class="{ active: i === 0 }">
+  </button>
+
+</div>
+
+<div class="carousel-inner">
+
+  <div
+    v-for="(img, i) in currentTileArtifact.images"
+    :key="img"
+    class="carousel-item"
+    :class="{ active: i === 0 }">
+
+    <img
+      :src="img"
+      class="d-block w-100 slider-img"
+      alt="Артефакт на плитці">
+
+  </div>
+
+</div>
+
+<button
+  class="carousel-control-prev"
+  type="button"
+  :data-bs-target="'#' + currentTileArtifact.id"
+  data-bs-slide="prev">
+
+  <span class="carousel-control-prev-icon"></span>
+
+</button>
+
+<button
+  class="carousel-control-next"
+  type="button"
+  :data-bs-target="'#' + currentTileArtifact.id"
+  data-bs-slide="next">
+
+  <span class="carousel-control-next-icon"></span>
+
+</button>
+
+  </div>
 
 </div>
 
@@ -1031,20 +1064,25 @@ h2, h3 {
 </footer>
 
 </div>
-
 <script>
+
 const { createApp } = Vue;
 
 createApp({
+
   data() {
+
     return {
+
       selected: "Цегла",
 
       index: 0,
       stampIndex: 0,
       tileIndex: 0,
+      tileArtifactIndex: 0,
 
       types: [
+
         {
           id: "sovietBrick",
           title: "Савєтська цегла",
@@ -1055,6 +1093,7 @@ createApp({
             "img/soviet_3.png"
           ]
         },
+
         {
           id: "redBrick",
           title: "Вишнева цегла",
@@ -1065,6 +1104,7 @@ createApp({
             "img/red_3.png"
           ]
         },
+
         {
           id: "yellowBrick",
           title: "Жовта цегла",
@@ -1075,6 +1115,7 @@ createApp({
             "img/yellow_3.png"
           ]
         },
+
         {
           id: "whiteBrick",
           title: "Біла цегла",
@@ -1085,6 +1126,7 @@ createApp({
             "img/white_3.png"
           ]
         },
+
         {
           id: "blackBrick",
           title: "Чорна цегла",
@@ -1095,9 +1137,11 @@ createApp({
             "img/black_3.png"
           ]
         }
+
       ],
 
       stamps: [
+
         {
           id: "pezetStamp",
           title: "PEZET",
@@ -1108,6 +1152,7 @@ createApp({
             "img/pezet_3.png"
           ]
         },
+
         {
           id: "zupanStamp",
           title: "ZUPAN",
@@ -1118,6 +1163,7 @@ createApp({
             "img/zupan_3.png"
           ]
         },
+
         {
           id: "sygnovkaStamp",
           title: "SYGNOVKA",
@@ -1128,6 +1174,7 @@ createApp({
             "img/sygnovka_3.png"
           ]
         },
+
         {
           id: "reissStamp",
           title: "REISS",
@@ -1138,54 +1185,110 @@ createApp({
             "img/reiss_3.png"
           ]
         }
-      ],
 
-      tiles: [
+      ],
+tiles: [
+
+  {
+    id: "whiteReflux",
+    title: "Білий відлив",
+    desc: "Світлий відлив із гладкою поверхнею та характерним білим кольором.",
+    images: [
+      "img/tile_1.png",
+      "img/tile_2.png",
+      "img/tile_3.png"
+    ]
+  },
+
+  {
+    id: "orangeReflux",
+    title: "Помаранчевий відлив",
+    desc: "Відлив теплого помаранчевого відтінку з виразною фактурою поверхні.",
+    images: [
+      "img/glazed_tile_1.png",
+      "img/glazed_tile_2.png",
+      "img/glazed_tile_3.png"
+    ]
+  },
+
+  {
+    id: "blackReflux",
+    title: "Чорний відлив",
+    desc: "Темний відлив із насиченим чорним кольором та характерною поверхнею.",
+    images: [
+      "img/pattern_tile_1.png",
+      "img/pattern_tile_2.png",
+      "img/pattern_tile_3.png"
+    ]
+  },
+
+  {
+    id: "yellowReflux",
+    title: "Жовтий відлив",
+    desc: "Відлив жовтого кольору з виразним відтінком та фактурою.",
+    images: [
+      "img/floor_tile_1.png",
+      "img/floor_tile_2.png",
+      "img/floor_tile_3.png"
+    ]
+  }
+
+],
+
+      tileArtifacts: [
+
         {
-          id: "ceramicTile",
-          title: "Керамічна плитка",
-          desc: "Класична плитка, виготовлена з глини та випалена у печі.",
+          id: "tileArtifact1",
+          title: "Сліди рук",
+          desc: "Відбитки рук, які могли залишитися на плитці під час її виготовлення.",
           images: [
-            "img/tile_1.png",
-            "img/tile_2.png",
-            "img/tile_3.png"
+            "img/tile_artifact_1_1.png",
+            "img/tile_artifact_1_2.png",
+            "img/tile_artifact_1_3.png"
           ]
         },
+
         {
-          id: "glazedTile",
-          title: "Глазурована плитка",
-          desc: "Плитка з декоративним глазурованим покриттям.",
+          id: "tileArtifact2",
+          title: "Сліди пальців",
+          desc: "Маленькі відбитки пальців, що залишилися на поверхні сирої плитки.",
           images: [
-            "img/glazed_tile_1.png",
-            "img/glazed_tile_2.png",
-            "img/glazed_tile_3.png"
+            "img/tile_artifact_2_1.png",
+            "img/tile_artifact_2_2.png",
+            "img/tile_artifact_2_3.png"
           ]
         },
+
         {
-          id: "patternTile",
-          title: "Орнаментована плитка",
-          desc: "Плитка з декоративними візерунками та орнаментами.",
+          id: "tileArtifact3",
+          title: "Сліди інструментів",
+          desc: "Незвичайні сліди та подряпини, які залишилися після ручної обробки плитки.",
           images: [
-            "img/pattern_tile_1.png",
-            "img/pattern_tile_2.png",
-            "img/pattern_tile_3.png"
+            "img/tile_artifact_3_1.png",
+            "img/tile_artifact_3_2.png",
+            "img/tile_artifact_3_3.png"
           ]
         },
+
         {
-          id: "floorTile",
-          title: "Підлогова плитка",
-          desc: "Міцна плитка, яку використовували для оздоблення підлоги.",
+          id: "tileArtifact4",
+          title: "Незвичайний орнамент",
+          desc: "Рідкісний декоративний елемент, який робить старовинну плитку особливою.",
           images: [
-            "img/floor_tile_1.png",
-            "img/floor_tile_2.png",
-            "img/floor_tile_3.png"
+            "img/tile_artifact_4_1.png",
+            "img/tile_artifact_4_2.png",
+            "img/tile_artifact_4_3.png"
           ]
         }
+
       ]
+
     };
+
   },
 
   computed: {
+
     current() {
       return this.types[this.index];
     },
@@ -1196,10 +1299,16 @@ createApp({
 
     currentTile() {
       return this.tiles[this.tileIndex];
+    },
+
+    currentTileArtifact() {
+      return this.tileArtifacts[this.tileArtifactIndex];
     }
+
   },
 
   methods: {
+
     nextType() {
       this.index = (this.index + 1) % this.types.length;
     },
@@ -1230,9 +1339,24 @@ createApp({
       this.tileIndex =
         (this.tileIndex - 1 + this.tiles.length) %
         this.tiles.length;
+    },
+
+    nextTileArtifact() {
+      this.tileArtifactIndex =
+        (this.tileArtifactIndex + 1) %
+        this.tileArtifacts.length;
+    },
+
+    prevTileArtifact() {
+      this.tileArtifactIndex =
+        (this.tileArtifactIndex - 1 + this.tileArtifacts.length) %
+        this.tileArtifacts.length;
     }
+
   }
+
 }).mount('#app');
+
 </script>
 
 
