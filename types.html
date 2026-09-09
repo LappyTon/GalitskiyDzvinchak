@@ -201,7 +201,7 @@ h2, h3 {
 
     <div class="collapse navbar-collapse" id="nav">
       <ul class="navbar-nav ms-auto">
-        <li class="nav-item"><a class="nav-link disabled text-white">093-123-45-67</a></li>
+        <li class="nav-item"><a class="nav-link disabled text-white">+38 (093) 853-61-01</a></li>
         <li class="nav-item"><a class="nav-link" href="assortment.html">Асортимент</a></li>
         <li class="nav-item"><a class="nav-link active" href="types.html">Типи цегли</a></li>
         <!-- <li class="nav-item"><a class="nav-link" href="musieum.html">Інтернет-музей</a></li> -->
@@ -665,29 +665,295 @@ h2, h3 {
 </div>
 </div>
 
-<div v-if="selected === 'Цегла'">
-  <div class="section text-center">
-    <div class="hero-title">
-      ЦЕГЛА
-    </div>
-
-    <div class="sub-title">
-      В стані розробки
-    </div>
-  </div>
-</div>
-
 <div v-if="selected === 'Плитка'">
-  <div class="section text-center">
-    <div class="hero-title">
-      ПЛИТКА
+
+<div class="section">
+
+<div class="hero-title">
+  ПЛИТКА
+</div>
+
+<div class="sub-title">
+  Стара плитка — це не просто оздоблення. Це частина історії будинку.
+</div>
+
+</div>
+
+<div class="section quote-box">
+
+<h3>
+  Стара плитка може пережити десятки поколінь і досі зберігати свій вигляд.
+</h3>
+
+<div class="small-note mt-2">
+  Якість, технологія та історія
+</div>
+
+</div>
+
+<div class="section">
+
+<h3>| Чому стара плитка цікава?</h3>
+
+<p class="fs-4">
+  Стародавня дзвінка цеглина настільки міцна, що з неї можна виготовляти плитку, просто відрізавши частину з неї.
+</p>
+
+<h3>| Кожна плитка може бути унікальною.</h3>
+
+<p class="fs-4">
+  Навіть плитки з однієї партії могли трохи відрізнятися одна від одної.
+  Саме ці особливості сьогодні роблять старовинну плитку цікавою
+  для колекціонерів, реставраторів та любителів старовини.
+</p>
+
+</div>
+
+<div class="section text-center">
+
+<h1 class="mb-5">
+  Цікаві артефакти на плитці:
+</h1>
+
+<div class="section text-center">
+
+  <div class="d-flex justify-content-between align-items-center mb-4 px-3">
+
+    <button
+      class="btn btn-outline-dark btn-sm fixed-btn"
+      @click="prevTile">
+      &lt;
+    </button>
+
+    <h2 class="display-4 fw-bold mb-0">
+      {{ currentTile.title }}
+    </h2>
+
+    <button
+      class="btn btn-outline-dark btn-sm fixed-btn"
+      @click="nextTile">
+      &gt;
+    </button>
+
+  </div>
+
+  <p class="fs-4 mb-4">
+    {{ currentTile.desc }}
+  </p>
+
+  <div
+    :id="currentTile.id"
+    class="carousel slide my-4"
+    data-bs-ride="carousel">
+
+    <div class="carousel-indicators">
+
+      <button
+        v-for="(img, i) in currentTile.images"
+        :key="i"
+        type="button"
+        :data-bs-target="'#' + currentTile.id"
+        :data-bs-slide-to="i"
+        :class="{ active: i === 0 }">
+      </button>
+
     </div>
 
-    <div class="sub-title">
-      В стані розробки
+    <div class="carousel-inner">
+
+      <div
+        v-for="(img, i) in currentTile.images"
+        :key="img"
+        class="carousel-item"
+        :class="{ active: i === 0 }">
+
+        <img
+          :src="img"
+          class="d-block w-100 slider-img"
+          alt="Плитка">
+
+      </div>
+
     </div>
+
+    <button
+      class="carousel-control-prev"
+      type="button"
+      :data-bs-target="'#' + currentTile.id"
+      data-bs-slide="prev">
+
+      <span class="carousel-control-prev-icon"></span>
+
+    </button>
+
+    <button
+      class="carousel-control-next"
+      type="button"
+      :data-bs-target="'#' + currentTile.id"
+      data-bs-slide="next">
+
+      <span class="carousel-control-next-icon"></span>
+
+    </button>
+
   </div>
+
 </div>
+
+</div>
+
+<div class="section">
+
+<div class="hero-title">
+  ВИРОБНИЦТВО ПЛИТКИ
+</div>
+
+<div class="sub-title">
+  Від глини до готового виробу
+</div>
+
+<div class="quote-box mt-5">
+
+  <h3>
+    Процес виготовлення плитки вимагав часу, точності та майстерності.
+  </h3>
+
+</div>
+
+<h3 class="mt-5">
+  | Формування
+</h3>
+
+<p class="fs-5">
+  Сиру масу формували у спеціальних формах, після чого плитку
+  залишали висихати перед випалом.
+</p>
+
+<h3>
+  | Випал
+</h3>
+
+<p class="fs-5">
+  Після висушування плитку випалювали у печах при високій температурі.
+  Саме випал надавав матеріалу міцності.
+</p>
+
+<h3>
+  | Покриття
+</h3>
+
+<p class="fs-5">
+  Деякі види плитки покривали глазур'ю, яка створювала характерний
+  блискучий або кольоровий поверхневий шар.
+</p>
+
+</div>
+
+<div class="section text-center">
+
+<div class="hero-title">
+  СТАРОВИННА ПЛИТКА
+</div>
+
+<div class="sub-title">
+  Фактура, кольори та сліди ручної роботи
+</div>
+
+<div class="quote-box">
+
+  <h3>
+    Нерівності, потертості та відмінності кольору можуть бути
+    не дефектами, а частиною історії плитки.
+  </h3>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>
+  Керамічна плитка
+</h2>
+
+<p class="fs-5">
+  Керамічна плитка виготовляється з глини та інших природних матеріалів.
+  Після формування її висушують і випалюють у печі.
+</p>
+
+<p class="fs-5">
+  Саме керамічна плитка стала одним із найпоширеніших матеріалів
+  для оздоблення стін та підлоги.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+  Глазурована плитка
+</h2>
+
+<p class="fs-5">
+  Глазурована плитка має спеціальне склоподібне покриття.
+  Воно може бути прозорим або кольоровим та надає поверхні
+  характерного блиску.
+</p>
+
+<p class="fs-5">
+  Глазур також допомагає захищати поверхню плитки від вологи
+  та забруднення.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+  Орнаментована плитка
+</h2>
+
+<p class="fs-5">
+  Орнаментована плитка прикрашена різноманітними геометричними,
+  рослинними або іншими декоративними візерунками.
+</p>
+
+<p class="fs-5">
+  Таку плитку часто використовували для створення декоративних
+  композицій на стінах, підлогах та фасадах будівель.
+</p>
+
+</div>
+
+<div class="section">
+
+<h2>
+  Плитка в старих будинках
+</h2>
+
+<p class="fs-5">
+  Старовинну плитку можна зустріти у житлових будинках,
+  громадських спорудах, храмах та інших історичних будівлях.
+</p>
+
+<p class="fs-5">
+  Її колір, форма та орнамент можуть багато розповісти
+  про час і місце, де вона була виготовлена.
+</p>
+
+</div>
+
+<div class="section quote-box">
+
+<h3>
+  Стара плитка — це не просто будівельний матеріал.
+  Це маленька частина історії, яка збереглася до наших днів.
+</h3>
+
+</div>
+
+</div>
+
 
 <div v-if="selected === 'Блочки'">
   <div class="section text-center">
@@ -737,9 +1003,10 @@ h2, h3 {
       <div class="col-md-6 mb-4">
         <h5>Наші Контакти</h5>
         <ul class="list-unstyled">
-          <li>Адреса: вул. Проєктна, 10</li>
-          <li>Телефон: +38 (099) 123-45-67</li>
-          <li>Email: info@proekt.ua</li>
+          
+                        <li>Адреса: Солонка</li>
+                        <li>Телефон: +38 (093) 853-61-01</li>
+                        <li>Email: galickijdzvincak@gmail.com</li>
         </ul>
       </div>
 
@@ -765,7 +1032,6 @@ h2, h3 {
 
 </div>
 
-
 <script>
 const { createApp } = Vue;
 
@@ -776,6 +1042,7 @@ createApp({
 
       index: 0,
       stampIndex: 0,
+      tileIndex: 0,
 
       types: [
         {
@@ -871,6 +1138,49 @@ createApp({
             "img/reiss_3.png"
           ]
         }
+      ],
+
+      tiles: [
+        {
+          id: "ceramicTile",
+          title: "Керамічна плитка",
+          desc: "Класична плитка, виготовлена з глини та випалена у печі.",
+          images: [
+            "img/tile_1.png",
+            "img/tile_2.png",
+            "img/tile_3.png"
+          ]
+        },
+        {
+          id: "glazedTile",
+          title: "Глазурована плитка",
+          desc: "Плитка з декоративним глазурованим покриттям.",
+          images: [
+            "img/glazed_tile_1.png",
+            "img/glazed_tile_2.png",
+            "img/glazed_tile_3.png"
+          ]
+        },
+        {
+          id: "patternTile",
+          title: "Орнаментована плитка",
+          desc: "Плитка з декоративними візерунками та орнаментами.",
+          images: [
+            "img/pattern_tile_1.png",
+            "img/pattern_tile_2.png",
+            "img/pattern_tile_3.png"
+          ]
+        },
+        {
+          id: "floorTile",
+          title: "Підлогова плитка",
+          desc: "Міцна плитка, яку використовували для оздоблення підлоги.",
+          images: [
+            "img/floor_tile_1.png",
+            "img/floor_tile_2.png",
+            "img/floor_tile_3.png"
+          ]
+        }
       ]
     };
   },
@@ -882,6 +1192,10 @@ createApp({
 
     currentStamp() {
       return this.stamps[this.stampIndex];
+    },
+
+    currentTile() {
+      return this.tiles[this.tileIndex];
     }
   },
 
@@ -905,11 +1219,21 @@ createApp({
       this.stampIndex =
         (this.stampIndex - 1 + this.stamps.length) %
         this.stamps.length;
+    },
+
+    nextTile() {
+      this.tileIndex =
+        (this.tileIndex + 1) % this.tiles.length;
+    },
+
+    prevTile() {
+      this.tileIndex =
+        (this.tileIndex - 1 + this.tiles.length) %
+        this.tiles.length;
     }
   }
 }).mount('#app');
 </script>
-
 
 
 
