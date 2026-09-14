@@ -43,5 +43,25 @@
     "photo_19_2026-09-07_09-17-32.jpg"
   ],
   "olxLink": "https://www.olx.ua/d/uk/934148285/?bs=olx_pro_listing"
-}
+}, 
+  {
+  "id": 14,
+  "name": "KULPARKOW",
+  "type": "Цегла",
+  "stamp": "KULPARKOW",
+  "color": "Червоний",
+  "ledges": "without",
+  "price": 300,
+  "availability": "in",
+  "img": "img/photo_5264963446690749313_y.jpg",
+  "images": [
+    "photo_5264963446690749313_y.jpg",
+    "photo_5264963446690749309_y.jpg",
+    "photo_5264963446690749310_y.jpg",
+    "photo_5264963446690749311_y.jpg",
+    "photo_5264963446690749312_y.jpg"
+  ],
+  "olxLink": "https://www.olx.ua/d/uk/obyavlenie/dzvnchak-kulparkow-starodavnya-klnkerna-tsegla-ID11eto6.html?bs=olx_pro_listing"
+} 
+
 ]
